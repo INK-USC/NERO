@@ -18,8 +18,8 @@ If you make use of this code or the rule dataset in your work, please cite the f
 
 
 ## Requirements
-Tensorflow-gpu == 1.10
-tqdm
+Tensorflow-gpu == 1.10 \
+tqdm \
 ujson
 
 ## Train

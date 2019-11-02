@@ -10,7 +10,7 @@ If you make use of this code or the rule dataset in your work, please cite the f
 ```bibtex
 @article{zhou2019neural,
   title={Neural Rule Grounding for Low-Resource Relation Extraction},
-  author={Zhou, Wenxuan and Lin, Hongtao and Wang, Ziqi and Neves, Leonardo and Ren, Xiang},
+  author={Zhou, Wenxuan and Lin, Hongtao and Lin, Bill Yuchen and Wang, Ziqi and Du, Junyi and Neves, Leonardo and Ren, Xiang},
   journal={arXiv preprint arXiv:1909.02177},
   year={2019}
 }

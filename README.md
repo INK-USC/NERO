@@ -21,9 +21,10 @@ If you make use of this code or the rules in your work, please kindly cite the f
 * [Motivation](#motivation)
 * [Labeling Rules](#labeling-rules)
 * [Train and Test](#train-and-test)
+* [Experiment Results](#experiment-results)
 
 ## Motivation
-Supervised neural models yield state-of-the-art results on relation extraction task, but their performance has a heavy reliance on sufficient training labels. To alleviate the problem, recent works (e.g. [Stanford Snorkel](https://hazyresearch.github.io/snorkel/)) propose to construct a large labeled dataset from labeling rules. They perform exact string matching on the unlabeled dataset, and a sentence is either matched or not matched by a rule. However, this hard-matching method fails to annotate sentences with similar meanings but different words, which consequently cause the low-recall problem and data-insufficiency for training neural networks. In this paper, we argue that the rule matching should not be performed solely based on the surface forms (strings), but also on the semantic meanings. We measure the similarity between sentences and rules with matching scores that are calculated on their neural representations (e.g. word embedding) and label each sentence with its most similar rule.
+Supervised neural models yield state-of-the-art results on relation extraction task, but their performance has a heavy reliance on sufficient training labels. To alleviate the problem, recent works (e.g. [Stanford Snorkel](https://hazyresearch.github.io/snorkel/)) propose to construct a large labeled dataset from labeling rules. They perform exact string matching on the unlabeled dataset, and a sentence is either matched or not matched by a rule. However, this **hard-matching** method fails to annotate sentences with similar meanings but different words, which consequently cause the low-recall problem and data-insufficiency for training neural networks. In this paper, we argue that the rule matching should not be performed solely based on the surface forms (strings), but also on their semantic meanings. We measure the similarity between sentences and rules with matching scores that are calculated on their neural representations (e.g. word embedding) and label each sentence with its most similar rule. Then, all sentences are weighted by their matching scores and used for training neural models. Experiments show that our **soft-matching** method greatly improves model performance.
 <p align="center"><img src="figs/rule_example.jpg" width="400"/></p>
 
 ## Labeling Rules
@@ -45,3 +46,13 @@ python3 tacred.py / semeval.py
 ```
 
 The model will be automatically evaluated on dev and test dataset after each training epoch. After training, the code will choose the model that achieves best performance on dev dataset and return its test score.
+
+## Experiment Results
+
+### Main Results
+We compare NERO to methods including rule-based methods, supervised methods, and semi-supervised methods that use labeling rules and unlabeled corpora as supervision. Experiments show that NERO outperforms other methods by a huge margin.
+<p align="center"><img src="figs/results.png" width="400"/></p>
+
+### User Studies
+To test the label efficiency of NERO in real scenarios, we ask 5 college students to annotate frequent patterns and unlabeled sentences during a 40 min period. Then we use these annotations to train a relation extraction model. The following image shows the average number of patterns / sentences labeled in the given time and the average performance of models trained with these annotations.
+<p align="center"><img src="figs/user_study.png" width="400"/></p>

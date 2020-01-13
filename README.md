@@ -5,7 +5,7 @@ Deep neural models for relation extraction tend to be less reliable when perfect
 
 <p align="center"><img src="figs/REGD.jpg" width="800"/></p>
 
-If you make use of this code or the rules in your work, please cite the following paper:
+If you make use of this code or the rules in your work, please kindly cite the following paper:
 
 ```bibtex
 @article{zhou2019neural,
@@ -19,14 +19,14 @@ If you make use of this code or the rules in your work, please cite the followin
 ## Quick Links
 * [Requirements](#requirements)
 * [Motivation](#motivation)
-* [Rules](#rules)
+* [Labeling Rules](#labeling-rules)
 * [Train and Test](#train-and-test)
 
 ## Motivation
-Supervised neural models yield state-of-the-art results on relation extraction task, but their performance has heavy reliance on sufficient training labels. To alliveate the problem, recent works (e.g. [Stanford Snorkel](https://www.snorkel.org/)) propose to construct large labeled dataset from labeling rules. They perform exact string matching on unlabeled dataset, and a sentence is either matched or not matched by a rule. However, this hard-matching method fails to annotate sentences with similar meanings but different words, which consequently cause the low-recall problem and data-insufficiency for training neural networks. In this paper, we argue that the rule matching should not be performed solely based on the surface forms (strings), but also on the semantic meanings. We measure the similarity between sentences and rules with matching scores that are calculated on their neural representations (e.g. word embedding), and label each sentence with its most similar rule.
+Supervised neural models yield state-of-the-art results on relation extraction task, but their performance has a heavy reliance on sufficient training labels. To alleviate the problem, recent works (e.g. [Stanford Snorkel](https://hazyresearch.github.io/snorkel/)) propose to construct a large labeled dataset from labeling rules. They perform exact string matching on the unlabeled dataset, and a sentence is either matched or not matched by a rule. However, this hard-matching method fails to annotate sentences with similar meanings but different words, which consequently cause the low-recall problem and data-insufficiency for training neural networks. In this paper, we argue that the rule matching should not be performed solely based on the surface forms (strings), but also on the semantic meanings. We measure the similarity between sentences and rules with matching scores that are calculated on their neural representations (e.g. word embedding) and label each sentence with its most similar rule.
 <p align="center"><img src="figs/rule_example.jpg" width="400"/></p>
 
-## Rules
+## Labeling Rules
 Labeling rules can either be crafted by domain experts, or automatically mines from large corpora with a knowledge base. In this work, we adopt a hybrid apporach. We first extract the frequent patterns from large raw corpora, then ask human annotators to assign labels to the patterns. In this way, we get 270 rules on TACRED dataset (located in``/data/tacred/pattern.json``) and 164 rules on SemEval 2010 dataset (located in``/data/semeval/pattern.json``). 
 
 

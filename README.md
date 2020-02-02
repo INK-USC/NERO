@@ -11,8 +11,8 @@ If you make use of this code or the rules in your work, please kindly cite the f
 @article{zhou2019nero,
   title={NERO: A Neural Rule Grounding Framework for Label-Efficient Relation Extraction},
   author={Zhou, Wenxuan and Lin, Hongtao and Lin, Bill Yuchen and Wang, Ziqi and Du, Junyi and Neves, Leonardo and Ren, Xiang},
-  journal={arXiv preprint arXiv:1909.02177},
-  year={2019}
+  journal={The Web Conference},
+  year={2020}
 }
 ```
 
